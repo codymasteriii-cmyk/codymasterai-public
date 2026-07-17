@@ -1,0 +1,65 @@
+What Three AI Models Revealed About a Common Assumption
+
+----------------------
+
+Easy Prompt:
+Review the provided 2025 and 2026 Federal Reserve CCAR stress test results. 
+For JPMorgan Chase, Bank of America, and Citigroup, extract the projected losses, revenue, and net income before taxes. Specifically, extract the following 5 line items for both years for each of these three banks:
+1. Pre-provision net revenue
+2. Provisions for loan and lease losses
+3. Credit losses on investment securities (AFS/HTM)
+4. Trading and counterparty losses
+5. Other losses/gains
+
+Format the output exactly as a simple Markdown table with columns: 'Bank Name', 'Line Item', '2025 Value', and '2026 Value'.
+
+----------------------
+
+Medium Prompt:
+Analyze the attached 2025 and 2026 CCAR results for Bank of America and Citigroup. 
+Perform the following analysis:
+1. Calculate the Year-over-Year (YoY) percentage point change (calculated as 2026 value minus 2025 value, preserving negative signs if the rate decreased) in projected loan loss rates for both the 'Commercial real estate, domestic' (CRE) and 'Credit cards' portfolios for both banks.
+2. Calculate the difference in loss rates (calculated as Citigroup minus Bank of America, preserving negative signs) for these two portfolios in both years.
+3. Summarize how Citigroup's loss rates for these two portfolios compared to Bank of America overall.
+4. Summarize the Fed's qualitative commentary on why aggregate loan losses increased from 2025 to 2026. You MUST explicitly cite the source reference (e.g., specific page numbers or section titles) from the document where the Fed explains the drivers for credit cards and commercial real estate losses.
+
+Format the numeric calculated results from steps 1 and 2 exactly as a Markdown table with the columns: 'Metric' and 'Value (p.p.)'. Use exactly these 8 row labels for the metrics:
+- 'BofA CRE YoY Change'
+- 'BofA CC YoY Change'
+- 'Citi CRE YoY Change'
+- 'Citi CC YoY Change'
+- '2025 CRE Difference (Citi - BofA)'
+- '2025 CC Difference (Citi - BofA)'
+- '2026 CRE Difference (Citi - BofA)'
+- '2026 CC Difference (Citi - BofA)'
+
+----------------------
+
+Complex Prompt (multi-step):
+You have been provided with the text from 4 separate documents: 
+1. 2025 Fed CCAR Stress Test Results
+2. 2026 Fed CCAR Stress Test Results
+3. 2025 Stress Test Scenarios
+4. 2026 Stress Test Scenarios
+
+Perform a macroeconomic attribution analysis for Citigroup's 'Credit cards' and 'Commercial real estate, domestic' (CRE) portfolios using these 4 documents. 
+
+1. Loss Rate Change: Extract Citigroup's projected loan loss rates for both the Credit Cards and CRE portfolios for 2025 and 2026 from the 'Results' documents. Calculate the Year-over-Year (YoY) percentage point change (calculated as 2026 minus 2025, preserving negative signs) for each.
+2. Macroeconomic Drivers: Based on the qualitative commentary in the documents, identify the specific macroeconomic variables that the Fed states are the primary drivers of projected losses for the Credit Card and CRE portfolios. *If the Fed documents do not explicitly state the drivers, rely on your financial domain knowledge to identify the standard variables that dictate losses in these specific portfolios.*
+3. Macroeconomic Variable Analysis: For each of the identified key macroeconomic variables, locate their projected values in the Severely Adverse Scenario domestic variables tables within the two 'Scenarios' documents. Determine the peak, trough, or overall severity of these variables in each year's scenario and calculate the YoY difference in severity between the two scenarios.
+4. Executive Summary: Write a comprehensive executive summary synthesizing this data. Explain *why* Citigroup's credit card and CRE loss rates changed YoY by directly linking the loss rate changes to the specific changes in the severity of the underlying macroeconomic variables you analyzed in step 3. 
+
+Format your output clearly with headers for each section. In the 'Macroeconomic Variable Analysis' section, you MUST include a Markdown table with EXACTLY these columns: 'Macro Variable', '2025 Severity', '2026 Severity', 'YoY Difference'.
+
+----------------------
+
+Complex Prompt (zero-shot):
+You have been provided with the text from 4 separate documents: 
+1. 2025 Fed CCAR Stress Test Results
+2. 2026 Fed CCAR Stress Test Results
+3. 2025 Stress Test Scenarios
+4. 2026 Stress Test Scenarios
+
+Read these 4 documents. Write an executive summary explaining why Citigroup's projected loan loss rates for its 'Credit cards' and 'Commercial real estate, domestic' (CRE) portfolios changed Year-over-Year (2026 vs 2025). 
+
+You must cite the specific Citigroup loss rates and the specific macroeconomic severity data from the scenarios that drove these changes.
